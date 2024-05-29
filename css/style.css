@@ -9,6 +9,7 @@
 
 #container{
     display: flex;
+    flex-wrap: wrap;
     min-height: 100vh;
     background-color: rgba(68, 117, 136, 0.548);
     justify-content: center;
@@ -23,11 +24,25 @@
     overflow: hidden;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: 0.5s;
+}
+
+.card:hover{
+    transform: translateY(-15px);
+}
+.card:hover .coeur{
+    left: 0;
+    opacity: 1;
+}
+.card:hover .card-header img{/*hovel : passage de la souris*/
+    transform: scale(1.1);
+    filter: grayscale(0);
 }
 
 .card-header{
+    position: relative;
     height: 200px;
-    
+    overflow: hidden;
 }
 
 .card-header img{
@@ -39,10 +54,6 @@
     transition: 0.5s;
     
 
-}
-
-.card-header img:hover{ /*hovel : passage de la souris*/
-    filter: grayscale(0);
 }
 
 .card-text{
@@ -58,4 +69,22 @@
 .card-text p{
     font-size: 14px;
     font-weight: 300;
+}
+
+.coeur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    height:50px;
+    background: rgb(237,52,96);
+    font-size: 20px;
+    position:absolute;
+    top: 0;
+    left: -40px;
+    transition: 0.5s;
+    opacity: 0;
+}
+.coeur a{
+    color: white;
 }
